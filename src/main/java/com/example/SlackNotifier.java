@@ -63,7 +63,7 @@ public class SlackNotifier {
                 return "物件が見つかりませんでした。";
 
             StringBuilder sb = new StringBuilder();
-            sb.append("📢 【全 " + totalCount + " 件ヒット / 最新10件】\n");
+            sb.append("📢 【全 " + totalCount + " 件ヒット / 最新50件】\n");
             sb.append("----------------------------\n");
 
             int count = 0;
@@ -76,7 +76,7 @@ public class SlackNotifier {
 
                 sb.append(count + ". " + name + "\n");
                 sb.append("   🔗 " + url + "\n\n");
-                if (count >= 10)
+                if (count >= 50)
                     break;
             }
 
