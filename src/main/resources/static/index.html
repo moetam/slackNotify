@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>不動産見張り番</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 2; }
+        .site-row { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .btn { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+        .btn:hover { background: #0056b3; }
+        .url-text { color: #666; font-size: 0.8em; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h1>🏠 不動産検索ダッシュボード</h1>
+
+    <div class="site-row">
+        <strong>アットホーム</strong><br>
+        <span class="url-text">https://www.athome.co.jp/kodate/chuko/tokyo/list/?pref=13&cities=chiyoda,chuo,minato,shinjuku,bunkyo,taito,sumida,koto,shinagawa,meguro,ota,setagaya,shibuya,nakano,suginami,toshima,kita,arakawa,itabashi,nerima,adachi,katsushika,edogawa,hachioji,tachikawa,musashino,mitaka,tokyo_fuchu,akishima,chofu,machida,koganei,kodaira,hino,higashimurayama,kokubunji,kunitachi,fussa,komae,higashiyamato,kiyose,higashikurume,nishitokyo&basic=kb208,kp299,kp103,kp001,kt101,kf001,ke001,kn001,kj003&kod=ko001&q=1&sort=95&limit=30</span><br>
+        <button class="btn" onclick="checkSite('https://www.athome.co.jp/kodate/chuko/tokyo/list/?pref=13&cities=chiyoda,chuo,minato,shinjuku,bunkyo,taito,sumida,koto,shinagawa,meguro,ota,setagaya,shibuya,nakano,suginami,toshima,kita,arakawa,itabashi,nerima,adachi,katsushika,edogawa,hachioji,tachikawa,musashino,mitaka,tokyo_fuchu,akishima,chofu,machida,koganei,kodaira,hino,higashimurayama,kokubunji,kunitachi,fussa,komae,higashiyamato,kiyose,higashikurume,nishitokyo&basic=kb208,kp299,kp103,kp001,kt101,kf001,ke001,kn001,kj003&kod=ko001&q=1&sort=95&limit=30')">調べる</button>
+    </div>
+
+    <div class="site-row">
+        <strong>アットホーム（別の条件など）</strong><br>
+        <span class="url-text">（URLをここに固定可能）</span><br>
+        <button class="btn" onclick="alert('URLを設定してください')">調べる</button>
+    </div>
+
+    <script>
+        function checkSite(url) {
+            fetch('/push?url=' + encodeURIComponent(url))
+                .then(res => res.text())
+                .then(txt => alert(txt));
+        }
+    </script>
+</body>
+</html>
